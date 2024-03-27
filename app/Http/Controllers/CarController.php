@@ -12,15 +12,6 @@ class CarController extends Controller
     //
     public function show(){
         $ID = Auth::user();
-        if($ID->getIdentification()->get()->isEmpty()){
-            if($ID->foreigner){
-                return redirect('/foreigner');
-            }
-            else{
-                return redirect('/citizen');
-            }
-            
-        }
         $car_types = DB::table('car_types')
                         ->whereIn('id', 
                                     DB::table('cars')

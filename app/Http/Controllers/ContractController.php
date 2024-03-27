@@ -63,10 +63,6 @@ class ContractController extends Controller
             'price' => $price,
         ]);
 
-        DB::table('cars')
-                ->where('id', $request->input('selected_car_id'))
-                ->update(['availability' => false]);
-
         return redirect()->route('dashboard');
     }
 
@@ -90,11 +86,6 @@ class ContractController extends Controller
         DB::table('contracts')
                 ->where('id', $request->input('contract_id'))
                 ->delete();
-
-        DB::table('cars')
-                ->where('id', $request->input('contract_id'))
-                ->update(['availability'=>true]);
-            
         return redirect()->route('dashboard');
     }
 }

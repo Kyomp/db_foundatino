@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('car_types', function (Blueprint $table) {
             $table->id();
-            $table->string('brand');
-            $table->string('model');
-            $table->string('transmission');
-            $table->string('fuel_type');
+            $table->string('brand', 20);
+            $table->string('model', 50);
+            $table->string('transmission', 10);
+            $table->string('fuel_type', 20);
             $table->Integer('capacity');
             $table->Integer('price_rate');
             $table->timestamps();

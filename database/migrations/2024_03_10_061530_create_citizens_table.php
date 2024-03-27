@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('citizens', function (Blueprint $table) {
             $table->id();
-            $table->string('citizen_no');
+            $table->string('citizen_no', 20);
             $table->unsignedBigInteger('user_id');
-            $table->string('address');
+            $table->string('address', 100);
             $table->date('issue_date');
             $table->date('expiry_date');
             $table->foreign('user_id')->references('id')->on('users');

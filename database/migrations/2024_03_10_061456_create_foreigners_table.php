@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('foreigners', function (Blueprint $table) {
             $table->id();
-            $table->string('passport_no');
-            $table->string('country');
+            $table->string('passport_no', 20);
+            $table->string('country', 20);
             $table->unsignedBigInteger('user_id');
             $table->date('issue_date');
             $table->date('expiry_date');
-            $table->string('issued_at');
+            $table->string('issued_at', 50);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
